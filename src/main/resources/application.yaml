@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: api-gateway
+
+  config:
+    import: configserver:${CONFIG_SERVER_URL:http://localhost:8888}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+hello:
+  service:
+    url: http://hello-service:8081
+
+greet:
+  service:
+    url: http://greet-service:8082
